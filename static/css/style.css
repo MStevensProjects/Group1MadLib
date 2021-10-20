@@ -1,0 +1,21 @@
+h1 {
+    border: 5px outset red;
+    color: brown;
+    text-align: center;
+    padding: 10px;
+    background: #fff0dd;
+}
+div {
+    border: 5px outset red;
+    background: #fff6eb;
+    text-align: center;
+    padding: 50px; 
+    
+}
+body {
+    background-image: url('thanksgiving.jpg');
+}
+table {
+    border: 5px outset red;
+    background-color: #fff0dd;
+}

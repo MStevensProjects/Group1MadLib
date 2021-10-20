@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
     <title>Thankgiving Dinner</title>
 </head>
 <body>
-   <h1>Welcome to our MadLib</h1>
-   <p>It was a 'adjective', cold November day. I woke up to the 'adjective' smell of 'type of bird' roasting in the 'room in a house' downstairs. I 'verb (past tense)' down the stairs to see if I could help 'verb' the dinner. My mom said, "See if 'relatives name' needs a fresh 'noun'." So I carried a tray of glasses full of 'a liquid' into the room. When I got there, I couldn't believe my 'part of the body (plural)'! There were 'plural noun' 'verb ending in -ing' on the 'noun'! </p>
+   <h1>Thankgiving Dinner MadLib</h1>
+    <div>
+        <p>It was a <b>{adjective1}</b>, cold November day. I woke up to the <b>{adjective2}</b> smell of <b>{bird}</b> roasting in the <b>{roominhouse:}</b> downstairs. I <b>{pastverb}</b> down the stairs to see if I could help <b>{verb1}</b> the dinner. My mom said, "See if <b>{relName}</b> needs a fresh <b>{noun1}</b>." So I carried a tray of glasses full of <b>{liquid}</b> into the room. When I got there, I couldn't believe my <b>{bodypart}</b>! There were <b>{plnoun}</b> <b>{verbing}</b> on the <b>{noun2}</b>! </p>
+    </div>
 </body>
 </html>
