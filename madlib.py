@@ -7,3 +7,4 @@ def index():
     return render_template('index.html')
 def toResults():
     return render_template('results.html')
+
