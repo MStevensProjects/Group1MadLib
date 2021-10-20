@@ -10,10 +10,18 @@ div {
     background: #fff6eb;
     text-align: center;
     padding: 50px; 
-    
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    right: 10%;
 }
 body {
+    background-color: #d48a60;
     background-image: url('thanksgiving.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 150%;
 }
 table {
     border: 5px outset red;
