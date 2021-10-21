@@ -27,4 +27,7 @@ def toResults():
                             plnoun = request.form["plnoun"], 
                             verbing = request.form["verbing"], 
                             noun2 = request.form["noun2"]
-                        ) 
+                        )
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
