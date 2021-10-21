@@ -9,15 +9,15 @@ version: 0.0
 # In the Resources section specify the name, alias, 
 # target version, and (optional) the current version of your AWS Lambda function. 
 Resources:
-  - MyFunction: # Replace "MyFunction" with the name of your Lambda function 
+  - madlibs-app: # Replace "MyFunction" with the name of your Lambda function  -- REQUIRED
       Type: AWS::Lambda::Function
       Properties:
-        Name: "madlibs-app" # Specify the name of your Lambda function
-        Alias: "" # Specify the alias for your Lambda function
-        CurrentVersion: "" # Specify the current version of your Lambda function
-        TargetVersion: "" # Specify the version of your Lambda function to deploy
+        Name: "madlibs-app" # Specify the name of your Lambda function -- REQUIRED
+        Alias: "madlibs-app-main" # Specify the alias for your Lambda function -- REQUIRED
+        CurrentVersion: "1" # Specify the current version of your Lambda function -- REQUIRED
+        TargetVersion: "1" # Specify the version of your Lambda function to deploy  -- REQUIRED
 # (Optional) In the Hooks section, specify a validation Lambda function to run during 
 # a lifecycle event. Replace "LifeCycleEvent" with BeforeAllowTraffic
 # or AfterAllowTraffic. 
-Hooks:
-    - LifeCycleEvent: "" # Specify a Lambda validation function between double-quotes.
+#Hooks:
+#    - LifeCycleEvent: "" # Specify a Lambda validation function between double-quotes.
