@@ -1,3 +1,3 @@
 #!/bin/bash
-$ export FLASK_APP=madlib
-$ flask run
+export FLASK_APP=madlib
+flask run
