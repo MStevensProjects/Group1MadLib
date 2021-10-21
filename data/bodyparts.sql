@@ -1,0 +1,16 @@
+INSERT INTO BodyParts (bPart_id, bPart_name) VALUES
+(1,"Head"),
+(2,"Arm"),
+(3,"Leg"),
+(4,"Toe"),
+(5,"Finger"),
+(6,"Ear"),
+(7,"Eye"),
+(8,"Nose"),
+(9,"Torso"),
+(10,"Thigh"),
+(11,"Knee"),
+(12,"Elbow"),
+(13,"Ankle"),
+(14,"Neck"),
+(15,"Belly Button")
