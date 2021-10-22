@@ -13,7 +13,7 @@ rdsClient = boto3.client('rds')
 rdsResponse = rdsClient.describe_db_instances(
     DBInstanceIdentifier = 'madlibsdb'
 )
-# Set environment variables
+# Set environment variables to be used for database connection.
 rds_instance = rdsResponse.get('DBInstances')[0]['Endpoint']['Address']
 db_name = rdsResponse.get('DBInstances')[0]['DBName']
 database_secret = json.loads(response['SecretString'])
@@ -27,11 +27,14 @@ def index():
     if request.method == "POST":
         return redirect(url_for("results"))
     elif request.method == "GET":
-        
+        # When the user selects the AUTOFILL button on the form, the invoked GET method will connect to the database and execute the appropriate queries to fill the form.
+
+        # Establish the database connection       
         conn = mysql.connector.connect( user = db_uname, 
                                 password = db_cred, 
                                 host = rds_instance, 
                                 database = db_name )
+        # Establish database cursor to allow for querying
         cursor = conn.cursor()
         query = ("SELECT word_noun FROM Nouns ORDER BY RAND() LIMIT 1")
         cursor.execute(query)
