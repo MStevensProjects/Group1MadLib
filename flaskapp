@@ -1,5 +1,6 @@
 # This is the NGINX config for madlib
 # It belongs in /etc/nginx/sites-enabled
+# It tells NGINX to formward traffic to flask middleware
 
 server{
     listen 80;
