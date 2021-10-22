@@ -1,3 +1,2 @@
-# Group1MadLib
-# The Golden Ducks
+# Group1MadLib - The Golden Ducks
 AWS Course Final Project
