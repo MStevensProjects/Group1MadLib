@@ -31,9 +31,9 @@ def index():
 
         # Establish the database connection       
         conn = mysql.connector.connect( user = db_uname, 
-                                password = db_cred, 
-                                host = rds_instance, 
-                                database = db_name )
+                                        password = db_cred, 
+                                        host = rds_instance, 
+                                        database = db_name )
         # Establish database cursor to allow for querying
         cursor = conn.cursor()
         query = ("SELECT word_noun FROM Nouns ORDER BY RAND() LIMIT 1")
