@@ -1,3 +1,6 @@
+# This is the NGINX config for madlib
+# It belongs in /etc/nginx/sites-enabled
+
 server{
     listen 80;
     server_name madlibs.thegoldenducks.click;
