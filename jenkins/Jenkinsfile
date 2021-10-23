@@ -5,7 +5,7 @@ pipeline {
         RKP = '/home/jenkins/team1-ec2-keypair.pem'
     }
     stages {
-        stage('Pull') {
+        stage('Git-Pull') {
             steps {
                 //Pull code from git to the workspace
                 git branch: 'main', url: 'https://github.com/MStevensProjects/Group1MadLib'
@@ -26,5 +26,10 @@ pipeline {
                 sh 'scp -ri $RKP $WORKSPACE/* $RHOST:/home/ubuntu/Group1MadLib'
             }
         }
+        stage('QA') {
+            steps {
+                // Python selenium script to test website
+                sh 'python3 $WORKSPACE/jenkins/madlib-qa.py'
+            }
     }
 }
