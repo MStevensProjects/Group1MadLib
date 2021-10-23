@@ -29,7 +29,8 @@ pipeline {
         stage('QA') {
             steps {
                 // Python selenium script to test website
-                sh 'python3 $WORKSPACE/jenkins/madlib-qa.py'
+                //sh 'python3 $WORKSPACE/jenkins/madlib-qa.py'
+                sh './home/jenkins/madlib-qa.py'
             }
         }
     }
