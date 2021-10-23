@@ -2,7 +2,7 @@
 LINE=$(curl -s madlibs.thegoldenducks.click | grep "<h1>" | sed 's/<.*>\(.*\)<\/.*>/\1/')
 echo "$LINE"
 TEXT="Thankgiving Dinner Madlib"
-if [ $LINE -eq "$TEXT" ]
+if [ $LINE == "$TEXT" ]
         then
                 echo "H1 found: '$TEXT'"
                 exit 0
