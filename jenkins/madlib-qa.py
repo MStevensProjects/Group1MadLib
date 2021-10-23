@@ -17,7 +17,7 @@ driver.close()
 
 if driver.title == "Madlib":
   print("Test Passed!")
-  sys.exit(0)
+  sys.exit("0")
 else:
   print("Test Failed!")
-  sys.exit(1)
+  sys.exit("1")
