@@ -28,13 +28,16 @@ pipeline {
         }
         stage('QA') {
             steps {
+                sh 'chmod -R +x $WORKSPACE/jenkins/*.py'
+                sh 'chmod -R +x $WORKSPACE/jenkins/*.sh'
+                
                 // Python selenium script to test website
                 // Scrapped due to problems with the headless web browser.
                 // t2 micro also didn't have enough RAM to run this.
                 //sh 'python3 $WORKSPACE/jenkins/madlib-qa.py'
                 
                 // Shell script to test website
-                sh './$WORKSPACE/jenkins/madlib-qa.sh'
+                sh 'sh $WORKSPACE/jenkins/madlib-qa.sh'
             }
         }
     }
