@@ -31,5 +31,6 @@ pipeline {
                 // Python selenium script to test website
                 sh 'python3 $WORKSPACE/jenkins/madlib-qa.py'
             }
+        }
     }
 }
