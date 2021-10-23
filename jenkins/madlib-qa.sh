@@ -1,5 +1,6 @@
 #!/bin/bash
-LINE=$(curl -s madlibs.thegoldenducks.click | grep "<h1>" | sed 's/<.*>\(.*\)<\/.*>/\1/') | tr -d "\t"
+LINE=$(curl -s madlibs.thegoldenducks.click | grep "<h1>" | sed 's/<.*>\(.*\)<\/.*>/\1/') 
+# | tr -d "\t"
 echo "$LINE"
 TEXT="Thankgiving Dinner Madlib"
 echo "$TEXT"
