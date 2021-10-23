@@ -1,1 +1,29 @@
-.
+pipeline {
+    agent any
+    environment {
+        RHOST = 'ubuntu@172.30.0.18'
+    }
+    stages {
+        stage('Pull') {
+            steps {
+                //Pull code from git to the workspace
+                git branch: 'main', url: 'https://github.com/MStevensProjects/Group1MadLib'
+            }
+        }
+        stage('Push-NGINX') {
+            steps {
+                // Push NGINX config
+                sh 'scp -ri /home/jenkins/team1-ec2-keypair.pem $WORKSPACE/flaskapp ubuntu@172.30.0.18:/etc/nginx/sites-enabled'
+            }
+        }
+        stage('Push-Flask') {
+            steps {
+                // Enforce file permissions
+                sh 'chmod -R +x $WORKSPACE/*.py'
+                sh 'chmod -R +x $WORKSPACE/*.sh'
+                // Update madlib app
+                sh 'scp -ri /home/jenkins/team1-ec2-keypair.pem $WORKSPACE/* ubuntu@172.30.0.18:/home/ubuntu/Group1MadLib'
+            }
+        }
+    }
+}
