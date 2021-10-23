@@ -13,11 +13,14 @@ driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chro
 driver.get("http://madlibs.thegoldenducks.click")
 title = driver.title
 print("title: "+driver.title)
-driver.close()
 
 if driver.title == "Madlib":
   print("Test Passed!")
-  sys.exit("0")
+  driver.close()
+  sys.exit(0)
 else:
   print("Test Failed!")
-  sys.exit("1")
+  driver.close()
+  sys.exit(1)
+  
+driver.close()  
