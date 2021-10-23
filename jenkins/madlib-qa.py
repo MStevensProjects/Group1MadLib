@@ -16,8 +16,8 @@ print("title: "+driver.title)
 driver.close()
 
 if driver.title == "Madlib":
-  print "Test Passed!"
+  print("Test Passed!")
   return 0
 else:
-  print "Test Failed!"
+  print("Test Failed!")
   return 1
