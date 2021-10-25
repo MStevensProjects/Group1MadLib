@@ -3,7 +3,6 @@
 
 server{
     listen 80;
-    #server_name madlibs.thegoldenducks.click;
     server_name 3.209.236.73 elb.thegoldenducks.click madlibs.thegoldenducks.click;
 
     location / {
