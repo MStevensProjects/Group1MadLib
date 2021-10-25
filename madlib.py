@@ -36,11 +36,13 @@ def index():
                                         database = db_name )
         # Establish database cursor to allow for querying
         cursor = conn.cursor()
-        query = ("SELECT word_noun FROM Nouns ORDER BY RAND() LIMIT 1")
+        query = ("SELECT word_noun, bird_name FROM Nouns, Birds ORDER BY RAND() LIMIT 1")
         cursor.execute(query)
         for i in cursor:
             noun1 = i
+            print(noun1)
             print(noun1[0])
+            print(noun1[1])
         # Close the cursor used to query the database
         cursor.close()
         # Close the connection to the database
