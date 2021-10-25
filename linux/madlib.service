@@ -1,0 +1,10 @@
+# goes in: /etc/systemd/system/madlib.service
+[Unit]
+Description=Gunicorn instance services the madlib app
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/Group1MadLib
+ExecStart=gunicorn madlib:app > /var/log/madlib.log

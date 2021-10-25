@@ -1,5 +1,8 @@
 #!/bin/python3
-  
+
+# The headless drivers for selenium weren't working in our AWS Linux box.
+# this script is abandoned.
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 

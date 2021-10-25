@@ -15,6 +15,9 @@ pipeline {
             steps {
                 // Push NGINX config
                 sh 'scp -ri $RKP $WORKSPACE/flaskapp $RHOST:/etc/nginx/sites-enabled'
+                
+                // nginx reload requires root :(
+                sh 'ssh -i $RKP $RHOST "sudo systemctl reload nginx"'
             }
         }
         stage('Push-Flask') {
@@ -24,6 +27,7 @@ pipeline {
                 sh 'chmod -R +x $WORKSPACE/*.sh'
                 // Update madlib app
                 sh 'scp -ri $RKP $WORKSPACE/* $RHOST:/home/ubuntu/Group1MadLib'
+                sh 'ssh -i $RKP $RHOST "sudo systemctl restart madlib.service"'
             }
         }
         stage('QA') {
