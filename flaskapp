@@ -4,16 +4,7 @@
 server{
     listen 80;
     #server_name madlibs.thegoldenducks.click;
-    server_name 3.209.236.73;
-
-    location / {
-        proxy_pass http://127.0.0.1:8000;
-    }
-}
-
-server{
-    listen 81;
-    server_name elb.thegoldenducks.click;
+    server_name 3.209.236.73 elb.thegoldenducks.click madlibs.thegoldenducks.click;
 
     location / {
         proxy_pass http://127.0.0.1:8000;
