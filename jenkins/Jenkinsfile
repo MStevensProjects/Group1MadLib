@@ -15,7 +15,7 @@ pipeline {
             steps {
                 // Push NGINX config
                 sh 'scp -ri $RKP $WORKSPACE/flaskapp $RHOST:/etc/nginx/sites-enabled'
-                sh 'nginx -s reload'
+                sh '/usr/sbin/nginx -s reload'
             }
         }
         stage('Push-Flask') {
