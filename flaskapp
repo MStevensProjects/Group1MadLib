@@ -1,10 +1,10 @@
 # This is the NGINX config for madlib
 # It belongs in /etc/nginx/sites-enabled
-# It tells NGINX to formward traffic to flask middleware
 
 server{
     listen 80;
-    server_name madlibs.thegoldenducks.click;
+    #server_name madlibs.thegoldenducks.click;
+    server_name 3.209.236.73;
 
     location / {
         proxy_pass http://127.0.0.1:8000;

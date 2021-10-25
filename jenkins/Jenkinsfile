@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    environment {
+        RHOST = 'ubuntu@172.30.0.18'
+        RKP = '/home/jenkins/team1-ec2-keypair.pem'
+    }
+    stages {
+        stage('Git-Pull') {
+            steps {
+                //Pull code from git to the workspace
+                git branch: 'main', url: 'https://github.com/MStevensProjects/Group1MadLib'
+            }
+        }
+        stage('Push-NGINX') {
+            steps {
+                // Push NGINX config
+                sh 'scp -ri $RKP $WORKSPACE/flaskapp $RHOST:/etc/nginx/sites-enabled'
+            }
+        }
+        stage('Push-Flask') {
+            steps {
+                // Enforce file permissions
+                sh 'chmod -R +x $WORKSPACE/*.py'
+                sh 'chmod -R +x $WORKSPACE/*.sh'
+                // Update madlib app
+                sh 'scp -ri $RKP $WORKSPACE/* $RHOST:/home/ubuntu/Group1MadLib'
+            }
+        }
+        stage('QA') {
+            steps {
+                sh 'chmod -R +x $WORKSPACE/jenkins/*.py'
+                sh 'chmod -R +x $WORKSPACE/jenkins/*.sh'
+                
+                // Python selenium script to test website
+                // Scrapped due to problems with the headless web browser.
+                // t2 micro also didn't have enough RAM to run this.
+                //sh 'python3 $WORKSPACE/jenkins/madlib-qa.py'
+                
+                // Shell script to test website
+                sh 'sh $WORKSPACE/jenkins/madlib-qa.sh'
+            }
+        }
+    }
+}
