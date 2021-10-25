@@ -17,7 +17,7 @@ pipeline {
                 sh 'scp -ri $RKP $WORKSPACE/flaskapp $RHOST:/etc/nginx/sites-enabled'
                 
                 // nginx reload requires root :(
-                // sh '/usr/sbin/nginx -s reload'
+                sh 'sudo systemctl reload nginx'
             }
         }
         stage('Push-Flask') {
