@@ -27,6 +27,7 @@ pipeline {
                 sh 'chmod -R +x $WORKSPACE/*.sh'
                 // Update madlib app
                 sh 'scp -ri $RKP $WORKSPACE/* $RHOST:/home/ubuntu/Group1MadLib'
+                sh 'ssh -i $RKP $RHOST "sudo systemctl restart madlib.service"'
             }
         }
         stage('QA') {
