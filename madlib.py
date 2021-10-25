@@ -1,7 +1,9 @@
+import re
 from flask import Flask, render_template, request, redirect,url_for
 import mysql.connector
 import boto3
 import json
+import random
 
 # Get creds from AWS Secrets Manager
 client = boto3.client("secretsmanager")
@@ -26,7 +28,7 @@ app = Flask(__name__)
 def index():   
     if request.method == "POST":
         return redirect(url_for("results"))
-    elif request.method == "GET":
+    if request.method == "GET":
         # When the user selects the AUTOFILL button on the form, the invoked GET method will connect to the database and execute the appropriate queries to fill the form.
 
         # Establish the database connection       
@@ -36,13 +38,18 @@ def index():
                                         database = db_name )
         # Establish database cursor to allow for querying
         cursor = conn.cursor()
-        query = ("SELECT word_noun, bird_name FROM Nouns, Birds ORDER BY RAND() LIMIT 1")
+        query = ('SELECT * from Adjectives')
         cursor.execute(query)
-        for i in cursor:
-            noun1 = i
-            print(noun1)
-            print(noun1[0])
-            print(noun1[1])
+        adjectives = []
+        
+        # this is the general idea of how i think we should do this. the query returns data in a format i am having troubhle cleaning up but right now every ODD number is a new word. will work more on this tomorrow (10-/26)
+
+        for i in cursor:       
+            result = i
+            adj_1 = (result)
+            adjectives += adj_1
+        print(adjectives[1], adjectives[3])
+
         # Close the cursor used to query the database
         cursor.close()
         # Close the connection to the database
