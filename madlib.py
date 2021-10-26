@@ -1,4 +1,5 @@
 import re
+from sys import argv
 from flask import Flask, render_template, request, redirect,url_for
 import mysql.connector
 import boto3
@@ -26,9 +27,11 @@ app = Flask(__name__)
 
 @app.route("/", methods=["POST", "GET"])
 def index():   
+    qresults = []
+    allResults = []
     if request.method == "POST":
         return redirect(url_for("results"))
-    if request.method == "GET":
+    if request.method == "GET" and len(allResults) == 0:
         # When the user selects the AUTOFILL button on the form, the invoked GET method will connect to the database and execute the appropriate queries to fill the form.
 
         # Establish the database connection       
@@ -38,8 +41,6 @@ def index():
                                         database = db_name )
         # Establish database cursor to allow for querying
         cursor = conn.cursor()
-        qresults = []
-        allResults = []
         
         # this is the general idea of how i think we should do this. the query returns data in a format i am having troubhle cleaning up but right now every ODD number is a new word. will work more on this tomorrow (10-/26)
 
@@ -143,13 +144,40 @@ def index():
         allResults.append(qresults[1])
         print("All of the results:")
         print(allResults)
+        adjRes = allResults[0]
+        adj2Res = allResults[1]
+        birdRes = allResults[2]
+        roomRes = allResults[3]
+        pverbRes = allResults[4]
+        verb1Res = allResults[5]
+        nameRes = allResults[6]
+        noun1Res = allResults[7]
+        liqRes = allResults[8]
+        bpRes = allResults[9]
+        plnRes = allResults[10]
+        vingRes = allResults[11]
+        noun2Res = allResults[12]
+
 
 
         # Close the cursor used to query the database
         cursor.close()
         # Close the connection to the database
         conn.close()
-        return render_template("index.html")
+        return render_template("index.html", 
+                                adjRes = adjRes,
+                                adj2Res = adj2Res,
+                                birdRes = birdRes,
+                                roomRes = roomRes,
+                                pverbRes = pverbRes,
+                                verb1Res = verb1Res,
+                                nameRes = nameRes,
+                                noun1Res = noun1Res,
+                                liqRes = liqRes,
+                                bpRes = bpRes,
+                                plnRes = plnRes,
+                                vingRes = vingRes,
+                                noun2Res = noun2Res)
     else: 
         return render_template("index.html")
 
