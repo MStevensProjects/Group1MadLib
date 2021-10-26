@@ -38,17 +38,107 @@ def index():
                                         database = db_name )
         # Establish database cursor to allow for querying
         cursor = conn.cursor()
-        query = ('SELECT * from Adjectives')
-        cursor.execute(query)
-        adjectives = []
+        qresults = []
         
         # this is the general idea of how i think we should do this. the query returns data in a format i am having troubhle cleaning up but right now every ODD number is a new word. will work more on this tomorrow (10-/26)
 
+        cursor.execute('SELECT adj_word from Adjectives')
         for i in cursor:       
             result = i
-            adj_1 = (result)
-            adjectives += adj_1
-        print(adjectives[1], adjectives[3])
+            qresults += result
+        random.shuffle(qresults)
+        print(qresults[1] + "\n" + qresults[3])
+
+        qresults = []
+        #flushes out previous queries
+        cursor.execute('SELECT bird_name from Birds')
+        for i in cursor: 
+            result = i
+            qresults += result
+        random.shuffle(qresults)
+        print(qresults[1])
+
+        qresults = []
+        #flushes out previous queries
+        cursor.execute('SELECT room_name from Rooms')
+        for i in cursor: 
+            result = i
+            qresults += result
+        random.shuffle(qresults)
+        print(qresults[1])
+
+        qresults = []
+        #flushes out previous queries
+        cursor.execute('SELECT verb_word from Verbs')
+        for i in cursor: 
+            result = i
+            qresults += result
+        random.shuffle(qresults)
+        print(qresults[1], qresults[20])
+
+        qresults = []
+        #flushes out previous queries
+        cursor.execute('SELECT fName_name from FirstNames')
+        for i in cursor: 
+            result = i
+            qresults += result
+        random.shuffle(qresults)
+        print(qresults[1])
+
+        qresults = []
+        #flushes out previous queries
+        cursor.execute('SELECT word_noun from Nouns')
+        for i in cursor: 
+            result = i
+            qresults += result
+        random.shuffle(qresults)
+        print(qresults[1])
+
+        qresults = []
+        #flushes out previous queries
+        cursor.execute('SELECT liquid_name from Liquids')
+        for i in cursor: 
+            result = i
+            qresults += result
+        random.shuffle(qresults)
+        print(qresults[1])
+
+        qresults = []
+        #flushes out previous queries
+        cursor.execute('SELECT bPart_name from BodyParts')
+        for i in cursor: 
+            result = i
+            qresults += result
+        random.shuffle(qresults)
+        print(qresults[1])
+
+        qresults = []
+        #flushes out previous queries
+        cursor.execute('SELECT word_noun from Nouns')
+        for i in cursor: 
+            result = i
+            qresults += result
+        random.shuffle(qresults)
+        print(qresults[1])
+
+        qresults = []
+        #flushes out previous queries
+        cursor.execute('SELECT verb_word from Verbs')
+        for i in cursor: 
+            result = i
+            qresults += result
+        random.shuffle(qresults)
+        print(qresults[1])
+
+        qresults = []
+        #flushes out previous queries
+        cursor.execute('SELECT word_noun from Nouns')
+        for i in cursor: 
+            result = i
+            qresults += result
+        random.shuffle(qresults)
+        print(qresults[1])
+
 
         # Close the cursor used to query the database
         cursor.close()
