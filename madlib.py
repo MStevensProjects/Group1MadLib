@@ -39,6 +39,7 @@ def index():
         # Establish database cursor to allow for querying
         cursor = conn.cursor()
         qresults = []
+        allResults = []
         
         # this is the general idea of how i think we should do this. the query returns data in a format i am having troubhle cleaning up but right now every ODD number is a new word. will work more on this tomorrow (10-/26)
 
@@ -47,7 +48,8 @@ def index():
             result = i
             qresults += result
         random.shuffle(qresults)
-        print(qresults[1] + "\n" + qresults[3])
+        allResults.append(qresults[1])
+        allResults.append(qresults[3])
 
         qresults = []
         #flushes out previous queries
@@ -56,7 +58,7 @@ def index():
             result = i
             qresults += result
         random.shuffle(qresults)
-        print(qresults[1])
+        allResults.append(qresults[1])
 
         qresults = []
         #flushes out previous queries
@@ -65,7 +67,7 @@ def index():
             result = i
             qresults += result
         random.shuffle(qresults)
-        print(qresults[1])
+        allResults.append(qresults[1])
 
         qresults = []
         #flushes out previous queries
@@ -74,7 +76,8 @@ def index():
             result = i
             qresults += result
         random.shuffle(qresults)
-        print(qresults[1], qresults[20])
+        allResults.append(qresults[1])
+        allResults.append(qresults[20])
 
         qresults = []
         #flushes out previous queries
@@ -83,7 +86,7 @@ def index():
             result = i
             qresults += result
         random.shuffle(qresults)
-        print(qresults[1])
+        allResults.append(qresults[1])
 
         qresults = []
         #flushes out previous queries
@@ -92,7 +95,7 @@ def index():
             result = i
             qresults += result
         random.shuffle(qresults)
-        print(qresults[1])
+        allResults.append(qresults[1])
 
         qresults = []
         #flushes out previous queries
@@ -101,7 +104,7 @@ def index():
             result = i
             qresults += result
         random.shuffle(qresults)
-        print(qresults[1])
+        allResults.append(qresults[1])
 
         qresults = []
         #flushes out previous queries
@@ -110,7 +113,7 @@ def index():
             result = i
             qresults += result
         random.shuffle(qresults)
-        print(qresults[1])
+        allResults.append(qresults[1])
 
         qresults = []
         #flushes out previous queries
@@ -119,7 +122,7 @@ def index():
             result = i
             qresults += result
         random.shuffle(qresults)
-        print(qresults[1])
+        allResults.append(qresults[1])
 
         qresults = []
         #flushes out previous queries
@@ -128,7 +131,7 @@ def index():
             result = i
             qresults += result
         random.shuffle(qresults)
-        print(qresults[1])
+        allResults.append(qresults[1])
 
         qresults = []
         #flushes out previous queries
@@ -137,7 +140,9 @@ def index():
             result = i
             qresults += result
         random.shuffle(qresults)
-        print(qresults[1])
+        allResults.append(qresults[1])
+        print("All of the results:")
+        print(allResults)
 
 
         # Close the cursor used to query the database
