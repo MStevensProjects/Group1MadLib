@@ -33,3 +33,18 @@ CREATE TABLE BodyParts (
     bPart_name VARCHAR(255) NOT NULL,
     PRIMARY KEY (bPart_id)
 );
+CREATE TABLE pastVerbs (
+    pverb_id INT NOT NULL,
+    pverb_word VARCHAR(255) NOT NULL,
+    PRIMARY KEY (pverb_id)
+);
+CREATE TABLE pluralNouns (
+    plnoun_id INT NOT NULL,
+    plnoun_word VARCHAR(255) NOT NULL,
+    PRIMARY KEY (plnoun_id)
+);
+CREATE TABLE actionVerbs (
+    averb_id INT NOT NULL,
+    averb_word VARCHAR(255) NOT NULL,
+    PRIMARY KEY (averb_id)
+);
