@@ -32,7 +32,7 @@ pipeline {
         }
         stage('QA') {
             steps {
-                #sh 'chmod -R +x $WORKSPACE/jenkins/*.py'
+                //sh 'chmod -R +x $WORKSPACE/jenkins/*.py'
                 sh 'chmod -R +x $WORKSPACE/jenkins/*.sh'
                 
                 // Python selenium script to test website
